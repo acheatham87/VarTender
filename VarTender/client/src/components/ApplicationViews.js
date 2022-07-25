@@ -2,7 +2,10 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import Hello from "./Hello";
+import Home from "./Home";
+import { FavoriteList } from "./favorites/FavoriteList";
+import { FavoriteDelete } from "./favorites/FavoriteDelete";
+import { FavoriteDetails } from "./favorites/FavoriteDetails";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -11,17 +14,17 @@ export default function ApplicationViews({ isLoggedIn }) {
         <Route path="/">
           <Route
             index
-            element={isLoggedIn ? <Hello /> : <Navigate to="/login" />}
+            element={isLoggedIn ? <FavoriteList /> : <Navigate to="/login" />}
           />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
 
-          {/* <Route path="categories" >
-            <Route index element={<CategoryList />} />
-            <Route path="create" element={<CatAddForm />} />
-            <Route path="delete/:id" element={<CategoryDelete />} />
-            <Route path="edit/:id" element={<CategoryEdit />} />
-          </Route> */}
+          <Route path="FavoritedDrink" >
+            {/* <Route index element={<CategoryList />} /> */}
+            {/* <Route path="create" element={<CatAddForm />} /> */}
+            <Route path="delete/:id" element={<FavoriteDelete />} />
+            {/* <Route path="details/:id" element={<FavoriteDetails />} /> */}
+          </Route>
 
           <Route path="*" element={<p>Whoops, nothing here...</p>} />
         </Route>

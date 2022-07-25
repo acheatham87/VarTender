@@ -26,11 +26,17 @@ namespace VarTender.Controllers
             return _userProfileRepository.GetByFirebaseUserId(firebaseUserId);
         }
 
-        [HttpGet]
+        [HttpGet("AllByFirebase")]
         public IActionResult Get()
         {
             UserProfile currentUser = GetCurrentUserProfile();
             return Ok(_favoritedDrinkRepository.GetAllFavoritesByUserId(currentUser.Id));
+        }
+
+        [HttpGet("AllById")]
+        public IActionResult GetAll(int id)
+        {
+            return Ok(_favoritedDrinkRepository.GetAllFavoritesByUserId(id));
         }
 
         [HttpGet("{id}")]

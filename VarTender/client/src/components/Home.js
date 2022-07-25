@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Hello() {
+export default function Home() {
   return (
     <span style={{
       position: "fixed",

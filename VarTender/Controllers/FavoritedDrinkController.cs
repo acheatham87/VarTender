@@ -53,6 +53,8 @@ namespace VarTender.Controllers
         [HttpPost]
         public IActionResult Post(FavoritedDrink favoritedDrink)
         {
+            UserProfile currentUser = GetCurrentUserProfile();
+            favoritedDrink.UserProfileId = currentUser.Id;
             _favoritedDrinkRepository.Add(favoritedDrink);
             return CreatedAtAction("Get", new { id = favoritedDrink.Id }, favoritedDrink);
         }

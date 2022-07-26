@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using VarTender.Models;
 using VarTender.Utils;
 

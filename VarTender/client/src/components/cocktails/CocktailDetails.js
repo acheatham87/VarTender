@@ -1,29 +1,24 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getFavoriteById } from "../../modules/favoriteManager";
 import { getDetailsById } from "../../modules/eDetailsManager";
 import { Card, CardBody, Button } from "reactstrap";
 
-export const FavoriteDetails = () => {
-    const [favorite, setFavorite] = useState({});
+export const CocktailDetails = () => {
     const [details, setDetails] = useState({});
 
     const navigate = useNavigate();
-    const {id} = useParams();
+    const {idDrink} = useParams();
 
-    const getFavorite = () => {
-        getFavoriteById(id)
-        .then(fav => {
-            getDetailsById(fav.drinkId)
-            .then(res => {
-                setDetails(res.drinks[0])
-                setFavorite(fav)
-            })
+    const getDetails = () => {
+        getDetailsById(idDrink)
+        .then(res => {
+            console.log(res)
+            setDetails(res.drinks[0])
         })
-    };
+    }
 
     useEffect(() => {
-        getFavorite()
+        getDetails()
     }, []);
 
     return(
@@ -50,8 +45,8 @@ export const FavoriteDetails = () => {
                 {details.strIngredient15 !== null ? <h6>{`${details.strIngredient15}, ${details.strMeasure15}`}</h6> : ""}
                 <h4>{`${details.strInstructions}`}</h4>
 
-            <Button color="info" onClick={() => navigate(`/`)}>Return</Button>
-            <Button color="danger" onClick={() => navigate(`/favorite/delete/${favorite.id}`)}>Remove</Button>
+            <Button color="info" onClick={() => navigate(`/cocktail`)}>Return</Button>
+            <Button color="success" onClick={() => navigate(`/cocktail`)}>Favorite</Button>
             </CardBody>
         </Card>
     )

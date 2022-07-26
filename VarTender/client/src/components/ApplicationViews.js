@@ -2,10 +2,11 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import Home from "./Home";
 import { FavoriteList } from "./favorites/FavoriteList";
 import { FavoriteDelete } from "./favorites/FavoriteDelete";
 import { FavoriteDetails } from "./favorites/FavoriteDetails";
+import { CocktailList } from "./cocktails/CocktailList";
+import { CocktailDetails } from "./cocktails/CocktailDetails";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -19,11 +20,14 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
 
-          <Route path="FavoritedDrink" >
-            {/* <Route index element={<CategoryList />} /> */}
-            {/* <Route path="create" element={<CatAddForm />} /> */}
+          <Route path="favorite" >
             <Route path="delete/:id" element={<FavoriteDelete />} />
-            {/* <Route path="details/:id" element={<FavoriteDetails />} /> */}
+            <Route path="details/:id" element={<FavoriteDetails />} />
+          </Route>
+
+          <Route path="cocktail" >
+            <Route index element={<CocktailList />} />
+            <Route path="details/:idDrink" element={<CocktailDetails />} />
           </Route>
 
           <Route path="*" element={<p>Whoops, nothing here...</p>} />

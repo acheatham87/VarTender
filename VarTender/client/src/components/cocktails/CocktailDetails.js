@@ -1,10 +1,16 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDetailsById } from "../../modules/eDetailsManager";
+import { addFavorite} from "../../modules/favoriteManager";
 import { Card, CardBody, Button } from "reactstrap";
 
 export const CocktailDetails = () => {
     const [details, setDetails] = useState({});
+    const [favorite, setFavorite] = useState({
+        drinkId: 0,
+        drinkName: '',
+        drinkImage: ''
+    })
 
     const navigate = useNavigate();
     const {idDrink} = useParams();
@@ -12,9 +18,23 @@ export const CocktailDetails = () => {
     const getDetails = () => {
         getDetailsById(idDrink)
         .then(res => {
-            console.log(res)
             setDetails(res.drinks[0])
+            handleSetFav(res.drinks[0])
         })
+    }
+
+    const handleSetFav = (details) => {
+        const newFav = {...favorite}
+        newFav.drinkId = details.idDrink
+        newFav.drinkName = details.strDrink
+        newFav.drinkImage = details.strDrinkThumb 
+        setFavorite(newFav)
+    }
+
+    const handleAddFav = (evt) => {
+        evt.preventDefault()
+        addFavorite(favorite)
+        .then(() => navigate('/'))
     }
 
     useEffect(() => {
@@ -46,7 +66,7 @@ export const CocktailDetails = () => {
                 <h4>{`${details.strInstructions}`}</h4>
 
             <Button color="info" onClick={() => navigate(`/cocktail`)}>Return</Button>
-            <Button color="success" onClick={() => navigate(`/cocktail`)}>Favorite</Button>
+            <Button color="success" onClick={handleAddFav}>Favorite</Button>
             </CardBody>
         </Card>
     )

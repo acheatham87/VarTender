@@ -9,7 +9,6 @@ export const CocktailList = () => {
     useEffect(() => {
         getRandomCocktails()
         .then(res => setCocktails(res.drinks))
-        console.log(cocktails)
     }, []);
 
     return (

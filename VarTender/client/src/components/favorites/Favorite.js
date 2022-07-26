@@ -12,7 +12,7 @@ export const Favorite = ({favorite}) => {
       width: 200,
     }}/>
                 <h6>{`${favorite.drinkName}`}</h6>
-                <Button color="danger" onClick={() => navigate(`/FavoritedDrink/delete/${favorite.id}`)}>Remove Favorite</Button>
+                <Button color="info" onClick={() => navigate(`/favorite/details/${favorite.id}`)}>Details</Button>
             </CardBody>
         </Card>
     )

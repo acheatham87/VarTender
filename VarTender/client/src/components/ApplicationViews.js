@@ -7,6 +7,8 @@ import { FavoriteDelete } from "./favorites/FavoriteDelete";
 import { FavoriteDetails } from "./favorites/FavoriteDetails";
 import { CocktailList } from "./cocktails/CocktailList";
 import { CocktailDetails } from "./cocktails/CocktailDetails";
+import { UserIngredientList } from "./userIngredient/UserIngredientList";
+import { IngredientList } from "./ingredient/IngredientList";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -23,6 +25,14 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="favorite" >
             <Route path="delete/:id" element={<FavoriteDelete />} />
             <Route path="details/:id" element={<FavoriteDetails />} />
+          </Route>
+
+          <Route path="myBar" >
+            <Route index element={<UserIngredientList />} />
+          </Route>
+
+          <Route path="ingredient" >
+            <Route index element={<IngredientList />} />
           </Route>
 
           <Route path="cocktail" >

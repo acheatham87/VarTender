@@ -1,12 +1,12 @@
 import "firebase/auth";
 import {getToken} from "./authManager";
 
-const baseUrl = '/api/FavoritedDrink';
+const baseUrl = '/api/UserIngredient';
 
-export const getAllFavorites = () => {
+export const getAllUserIngredients = () => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}/AllByFirebase`, {
-            method:"GET",
+            method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -14,13 +14,13 @@ export const getAllFavorites = () => {
             if (res.ok) {
                 return res.json()
             } else {
-                throw new Error("An unknows error occurred while tyring to get your favorites",)
+                throw new Error("An unknown error occured while trying to get your userIngredients",)
             }
         })
     })
 }
 
-export const getFavoriteById = (id) => {
+export const getUserIngredientById = (id) => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}/${id}`, {
             method: "GET",
@@ -32,14 +32,14 @@ export const getFavoriteById = (id) => {
                 return res.json()
             } else {
                 throw new Error(
-                    "An unknown error occurred while trying to get favorite."
+                    "An unknown error occurred while trying to get userIngredient."
                 )
             }
         })
     })
 }
 
-export const deleteFavorite = (id) => {
+export const deleteUserIngredient = (id) => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}/${id}`, {
             method: "DELETE",
@@ -55,13 +55,13 @@ export const deleteFavorite = (id) => {
             else if (res.status === 401) {
                 throw new Error("Unauthorized")
             } else {
-                throw new Error("An unknown error occurred while trying to delete favorite.")
+                throw new Error("An unknown error occurred while trying to delete userIngredient.")
             }
         })
     })
 }
 
-export const addFavorite = (favorite) => {
+export const addUserIngredient = (userIngredient) => {
     return getToken().then((token) => {
         return fetch(`${baseUrl}`, {
             method: "POST",
@@ -69,13 +69,13 @@ export const addFavorite = (favorite) => {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(favorite),
+            body: JSON.stringify(userIngredient),
         }).then((res) => {
             if (res.ok) {
                 return res.json()
             } else {
                 throw new Error(
-                    "An unknown error occurred while trying to save your favorite.",
+                    "An unknown error occurred while trying to save your userIngredient.",
                 )
             }
         })

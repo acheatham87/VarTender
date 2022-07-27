@@ -33,12 +33,6 @@ namespace VarTender.Controllers
             return Ok(_favoritedDrinkRepository.GetAllFavoritesByUserId(currentUser.Id));
         }
 
-        [HttpGet("AllById")]
-        public IActionResult GetAll(int id)
-        {
-            return Ok(_favoritedDrinkRepository.GetAllFavoritesByUserId(id));
-        }
-
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

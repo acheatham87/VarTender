@@ -5,6 +5,6 @@ namespace VarTender.Repositories
 {
     public interface IIngredientRepository
     {
-        List<Ingredient> GetAllIngredients();
+        List<Ingredient> GetAllIngredients(int id);
     }
 }

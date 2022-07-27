@@ -1,11 +1,11 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getDetailsById } from "../../modules/eDetailsManager";
+import { getDetailsById } from "../../modules/eCocktailDetailsManager";
 import { addFavorite} from "../../modules/favoriteManager";
 import { Card, CardBody, Button } from "reactstrap";
 
 export const CocktailDetails = () => {
-    const [details, setDetails] = useState({});
+    const [details, setDetails] = useState(null);
     const [favorite, setFavorite] = useState({
         drinkId: 0,
         drinkName: '',
@@ -41,6 +41,11 @@ export const CocktailDetails = () => {
         getDetails()
     }, []);
 
+    if (details === null)
+    {
+        return null
+    } 
+    
     return(
         <Card>
             <CardBody>
@@ -65,7 +70,7 @@ export const CocktailDetails = () => {
                 {details.strIngredient15 !== null ? <h6>{`${details.strIngredient15}, ${details.strMeasure15}`}</h6> : ""}
                 <h4>{`${details.strInstructions}`}</h4>
 
-            <Button color="info" onClick={() => navigate(`/cocktail`)}>Return</Button>
+            <Button color="secondary" onClick={() => navigate(`/cocktail`)}>Return</Button>
             <Button color="success" onClick={handleAddFav}>Favorite</Button>
             </CardBody>
         </Card>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getRandomCocktails } from "../../modules/eCocktailManager";
+import { getRandomCocktails } from "../../modules/eRandomCocktailManager";
 import { Cocktail } from "./Cocktail";
 
 export const CocktailList = () => {

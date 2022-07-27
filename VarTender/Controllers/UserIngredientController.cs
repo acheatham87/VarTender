@@ -33,12 +33,6 @@ namespace VarTender.Controllers
             return Ok(_userIngredientRepository.GetAllUserIngredientsByUserId(currentUSer.Id));
         }
 
-        [HttpGet("AllById")]
-        public IActionResult GetAll(int Id)
-        {
-            return Ok(_userIngredientRepository.GetAllUserIngredientsByUserId(Id));
-        }
-
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -53,6 +47,8 @@ namespace VarTender.Controllers
         [HttpPost]
         public IActionResult Post(UserIngredient userIngredient)
         {
+            UserProfile currentUser = GetCurrentUserProfile();
+            userIngredient.UserProfileId = currentUser.Id;
             _userIngredientRepository.Add(userIngredient);
             return CreatedAtAction("Get", new { id = userIngredient.Id }, userIngredient);
         }

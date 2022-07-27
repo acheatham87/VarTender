@@ -10,7 +10,7 @@ namespace VarTender.Repositories
 
         public IngredientRepository(IConfiguration configuration) : base(configuration) { }
 
-        public List<Ingredient> GetAllIngredients()
+        public List<Ingredient> GetAllIngredients(int id)
         {
             List<Ingredient> ingredients = new List<Ingredient>();
             {
@@ -20,9 +20,13 @@ namespace VarTender.Repositories
                     using (var cmd = conn.CreateCommand())
                     {
                         cmd.CommandText = @"
-                            SELECT Id, Name
-                            FROM Ingredient
-                            ORDER BY Name";
+                            SELECT i.Id AS Id, Name
+                            FROM Ingredient i
+                            LEFT JOIN userIngredient ui ON i.Id = ui.IngredientId
+                            WHERE ui.IngredientId IS NULL OR ui.UserProfileId != @Id
+                            ORDER BY i.Name";
+
+                        DbUtils.AddParameter(cmd, "@id", id);
 
                         var reader = cmd.ExecuteReader();
 

@@ -1,12 +1,12 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getFavoriteById } from "../../modules/favoriteManager";
-import { getDetailsById } from "../../modules/eDetailsManager";
+import { getDetailsById } from "../../modules/eCocktailDetailsManager";
 import { Card, CardBody, Button } from "reactstrap";
 
 export const FavoriteDetails = () => {
     const [favorite, setFavorite] = useState({});
-    const [details, setDetails] = useState({});
+    const [details, setDetails] = useState(null);
 
     const navigate = useNavigate();
     const {id} = useParams();
@@ -26,6 +26,11 @@ export const FavoriteDetails = () => {
         getFavorite()
     }, []);
 
+    if (details === null)
+    {
+        return null
+    }
+    
     return(
         <Card>
             <CardBody>
@@ -50,7 +55,7 @@ export const FavoriteDetails = () => {
                 {details.strIngredient15 !== null ? <h6>{`${details.strIngredient15}, ${details.strMeasure15}`}</h6> : ""}
                 <h4>{`${details.strInstructions}`}</h4>
 
-            <Button color="info" onClick={() => navigate(`/`)}>Return</Button>
+            <Button color="secondary" onClick={() => navigate(`/`)}>Return</Button>
             <Button color="danger" onClick={() => navigate(`/favorite/delete/${favorite.id}`)}>Remove</Button>
             </CardBody>
         </Card>

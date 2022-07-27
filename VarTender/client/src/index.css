@@ -16,3 +16,8 @@ p {
 .post p {
     white-space: pre-wrap;
 }
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}

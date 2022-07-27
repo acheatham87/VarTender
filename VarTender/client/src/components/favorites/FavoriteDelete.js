@@ -4,9 +4,7 @@ import { deleteFavorite, getFavoriteById } from "../../modules/favoriteManager";
 import { Button, Form, FormGroup, Label } from "reactstrap";
 
 export const FavoriteDelete = () => {
-    const [favorite, setFavorite] = useState({
-        drinkName:"",
-    });
+    const [favorite, setFavorite] = useState({});
 
     const navigate = useNavigate();
     const {id} = useParams();
@@ -35,7 +33,7 @@ export const FavoriteDelete = () => {
                 <Button color="danger" onClick={() => handleClickDelete()}>
                     Remove
                 </Button>
-                <Button onClick={() => navigate("/")}>
+                <Button onClick={() => navigate(`/favorite/details/${favorite.id}`)}>
                     Cancel
                 </Button>
             </FormGroup>

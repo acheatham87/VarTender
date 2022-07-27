@@ -20,10 +20,9 @@ export const UserIngredientList = () => {
         <div className="userIngredientContainer">
         {userIngredients.map((userIngredient) => (
             <UserIngredient userIngredient={userIngredient} key={userIngredient.id} />
-        ))}
-        <Button color="success" onClick={() => navigate(`/ingredient`)}>Add</Button>
-        <Button color="danger">Remove</Button>
-        </div>
+            ))}
+            <Button color="success" onClick={() => navigate(`/ingredient`)}>Add</Button>
+           </div>
         </>
     )
 }

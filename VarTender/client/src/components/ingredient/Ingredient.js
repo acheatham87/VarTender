@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, FormGroup, Label, Input} from "reactstrap";
+import "./Ingredient.css";
 
 export const Ingredient = ({ingredient, handleChange}) => {
     

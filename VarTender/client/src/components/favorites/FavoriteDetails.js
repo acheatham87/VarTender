@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getFavoriteById } from "../../modules/favoriteManager";
-import { getDetailsById } from "../../modules/eDetailsManager";
+import { getDetailsById } from "../../modules/eCocktailDetailsManager";
 import { Card, CardBody, Button } from "reactstrap";
 
 export const FavoriteDetails = () => {

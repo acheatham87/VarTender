@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getDetailsById } from "../../modules/eDetailsManager";
+import { getDetailsById } from "../../modules/eCocktailDetailsManager";
 import { addFavorite} from "../../modules/favoriteManager";
 import { Card, CardBody, Button } from "reactstrap";
 

@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardBody, FormGroup, Label, Input} from "reactstrap";
 import "./Ingredient.css";
 
 export const Ingredient = ({ingredient, handleChange}) => {
     
     return(
-        <Card>
-            <CardBody>
+        <Card className="card">
+            <CardBody className="cardBody">
                 <FormGroup check>
                     <Label check>
                         <Input 
@@ -20,6 +21,9 @@ export const Ingredient = ({ingredient, handleChange}) => {
                         
                     </Label>
                 </FormGroup>
+                <Link to={`/ingredient/details/${ingredient.name}`}>
+                    <h6>Details</h6>
+                </Link>
             </CardBody>
         </Card>
     )

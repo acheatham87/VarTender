@@ -6,13 +6,13 @@ import "./Favorite.css"
 export const Favorite = ({favorite}) => {
     
     return(
-        <Card>
+        <Card className="card">
             <Link to={`/favorite/details/${favorite.id}`}>
-            <CardBody>
+            <CardBody className="cardBody">
                 <img src={`${favorite.drinkImage}`} style={{
       width: 200,
     }}/>
-                <h6>{`${favorite.drinkName}`}</h6>
+                <h4>{`${favorite.drinkName}`}</h4>
             </CardBody>
             </Link>
         </Card>

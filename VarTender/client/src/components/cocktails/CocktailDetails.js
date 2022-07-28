@@ -47,8 +47,8 @@ export const CocktailDetails = () => {
     } 
     
     return(
-        <Card>
-            <CardBody>
+        <Card className="card">
+            <CardBody className="cardBody">
                 <img src={`${details.strDrinkThumb}`} style={{
       width: 200,
     }}/>

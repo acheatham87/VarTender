@@ -17,7 +17,6 @@ p {
     white-space: pre-wrap;
 }
 
-a, a:hover, a:focus, a:active {
-  text-decoration: none;
-  color: inherit;
+body {
+  background-image: url(/public/images/BarBackgroundEdit1.jpg);
 }

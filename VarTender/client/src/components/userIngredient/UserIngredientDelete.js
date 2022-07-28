@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { deleteUserIngredient, getUserIngredientById } from "../../modules/userIngredientManager";
-import { Button, Form, FormGroup, Label } from "reactstrap";
+import { Button, Card, CardBody } from "reactstrap";
 
 export const UserIngredientDelete = () => {
     const [userIngredient, setUserIngredient] = useState({});
@@ -25,19 +25,17 @@ export const UserIngredientDelete = () => {
     }, []);
 
     return(
-        <Form>
-            <FormGroup>
-                <Label>Are you sure you'd like to remove <b>{location.state.ingredientName}</b> from favorites?
-                </Label>
-            </FormGroup>
-            <FormGroup>
-                <Button color="danger" onClick={() => handleClickDelete()}>
-                    Remove
-                </Button>
+
+        <Card  className="card">
+            <CardBody className="cardBody">
+                <h4>Are you sure you'd like to remove <b>{location.state.ingredientName}</b> from favorites?</h4>
                 <Button onClick={() => navigate(`/myBar/ingredientDetails/${userIngredient.id}`)}>
                     Cancel
                 </Button>
-            </FormGroup>
-        </Form>
+                <Button color="danger" onClick={() => handleClickDelete()}>
+                    Remove
+                </Button>
+            </CardBody>
+        </Card>
     )
 }

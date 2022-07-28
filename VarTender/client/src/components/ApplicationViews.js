@@ -11,6 +11,7 @@ import { UserIngredientList } from "./userIngredient/UserIngredientList";
 import { IngredientList } from "./ingredient/IngredientList";
 import { UserIngredientDetails } from "./userIngredient/UserIngredientDetails";
 import { UserIngredientDelete } from "./userIngredient/UserIngredientDelete";
+import { IngredientDetails } from "./ingredient/IngredientDetails";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -37,7 +38,7 @@ export default function ApplicationViews({ isLoggedIn }) {
 
           <Route path="ingredient" >
             <Route index element={<IngredientList />} />
-            {/* <Route path="details/:id" index element={} /> */}
+            <Route path="details/:id" index element={<IngredientDetails />} />
           </Route>
 
           <Route path="cocktail" >

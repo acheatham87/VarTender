@@ -6,9 +6,9 @@ import "./UserIngredient.css";
 export const UserIngredient = ({userIngredient}) => {
     
     return(
-        <Card>
+        <Card className="card">
             <Link to={`/myBar/ingredientDetails/${userIngredient.id}`}>
-            <CardBody>
+            <CardBody className="cardBody">
                 <h4>{`${userIngredient.ingredient.name}`}</h4>
             </CardBody>
             </Link>

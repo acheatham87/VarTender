@@ -6,13 +6,13 @@ import "./Cocktail.css";
 export const Cocktail = ({cocktail}) => {
     
     return(
-        <Card>
+        <Card className="card">
             <Link to={`/cocktail/details/${cocktail.idDrink}`}>
-            <CardBody>
+            <CardBody className="cardBody">
                 <img src={`${cocktail.strDrinkThumb}`} style={{
       width: 200,
     }}/>
-                <h6>{`${cocktail.strDrink}`}</h6>        
+                <h4>{`${cocktail.strDrink}`}</h4>        
             </CardBody>
             </Link>
         </Card>

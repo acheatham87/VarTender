@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, CardBody} from "reactstrap";
-import "./UserIngredient.css";
 
 export const UserIngredient = ({userIngredient}) => {
     
     return(
-        <Card className="card">
+        <Card id="card" style={{ width: '12rem', margin: `1rem`, textAlign: 'center' }}>
             <Link to={`/myBar/ingredientDetails/${userIngredient.id}`}>
-            <CardBody className="cardBody">
-                <h4>{`${userIngredient.ingredient.name}`}</h4>
+            <CardBody>
+                <h6>{`${userIngredient.ingredient.name}`}</h6>
             </CardBody>
             </Link>
         </Card>

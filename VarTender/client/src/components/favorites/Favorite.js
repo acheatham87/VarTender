@@ -1,15 +1,14 @@
 import React from "react";
-import {Button, Card, CardBody} from "reactstrap";
+import {Button, Card, CardBody, CardImg} from "reactstrap";
 import { Link } from "react-router-dom";
-import "./Favorite.css"
 
 export const Favorite = ({favorite}) => {
     
     return(
-        <Card className="card">
+        <Card id="card" style={{ width: '18rem', margin: `2rem`, textAlign: 'center' }}>
             <Link to={`/favorite/details/${favorite.id}`}>
-            <CardBody className="cardBody">
-                <img src={`${favorite.drinkImage}`} style={{
+            <CardBody>
+                <CardImg src={`${favorite.drinkImage}`} style={{
       width: 200,
     }}/>
                 <h4>{`${favorite.drinkName}`}</h4>

@@ -22,13 +22,15 @@ export const IngredientDetails = () => {
     }, []);
 
     return(
-        <Card className="card">
-            <CardBody className="cardBody">
-                <h2>{`${details.strIngredient}`}</h2>
-                {details.strDescription != null ? <h4>{`${details.strDescription}`}</h4> : <h4>No details in the database</h4>}
-                <Button color="secondary" onClick={() => navigate(`/ingredient`)}>Return</Button>
-            </CardBody>
-        </Card>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Card id="card" style={{ margin: '2em', width: 'fit-content', }}> 
+                <CardBody>
+                    <h2>{`${details.strIngredient}`}</h2>
+                    {details.strDescription != null ? <h6>{`${details.strDescription}`}</h6> : <h6>No details in the database</h6>}
+                    <Button color="secondary" onClick={() => navigate(`/ingredient`)}>Return</Button>
+                </CardBody>
+            </Card>
+        </div>
     )
 
 }

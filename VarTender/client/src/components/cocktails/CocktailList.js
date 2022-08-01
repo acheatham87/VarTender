@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRandomCocktails } from "../../modules/eRandomCocktailManager";
 import { Cocktail } from "./Cocktail";
+import { Row } from "reactstrap";
 
 export const CocktailList = () => {
 
@@ -13,11 +14,13 @@ export const CocktailList = () => {
 
     return (
         <>
-        <h3>Cocktails</h3>
+        <h3 style={{ color: 'white' }}>Cocktails</h3>
         <div className="cocktailContainer">
-        {cocktails.map((cocktail) => (
-            <Cocktail cocktail={cocktail} key={cocktail.idDrink} />
-        ))}
+            <Row style={{ justifyContent: 'center' }}>
+                {cocktails.map((cocktail) => (
+                    <Cocktail cocktail={cocktail} key={cocktail.idDrink} />
+                ))}
+            </Row>
         </div>
         </>
     )

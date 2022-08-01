@@ -30,14 +30,16 @@ export const UserIngredientDetails = () => {
     }, []);
 
     return(
-        <Card className="card">
-            <CardBody className="cardBody">
-                <h2>{`${details.strIngredient}`}</h2>
-                {details.strDescription != null ? <h4>{`${details.strDescription}`}</h4> : <h4>No details in the database</h4>}
-                <Button color="secondary" onClick={() => navigate(`/myBar`)}>Return</Button>
-                <Button color="danger" onClick={() => navigate(`/myBar/delete/${id}`, {state: {ingredientName: userIngredient.ingredient.name}})}>Remove</Button>
-            </CardBody>
-        </Card>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Card id="card" style={{ margin: '2em', width: 'fit-content', }}> 
+                <CardBody>
+                    <h2>{`${details.strIngredient}`}</h2>
+                    {details.strDescription != null ? <h4>{`${details.strDescription}`}</h4> : <h4>No details in the database</h4>}
+                    <Button color="secondary" onClick={() => navigate(`/myBar`)}>Return</Button>
+                    <Button color="danger" onClick={() => navigate(`/myBar/delete/${id}`, {state: {ingredientName: userIngredient.ingredient.name}})}>Remove</Button>
+                </CardBody>
+            </Card>
+        </div>
     )
 
 }

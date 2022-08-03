@@ -16,15 +16,15 @@ export const UserIngredientList = () => {
 
     return (
         <>
-        <h3 style={{ color: 'white' }}>Your Current Ingredients</h3>
-        <div className="userIngredientContainer">
-        <Row style={{ justifyContent: 'center' }}>
-        {userIngredients.map((userIngredient) => (
-            <UserIngredient userIngredient={userIngredient} key={userIngredient.id} />
-            ))}
-        </Row>
-            <Button color="success" onClick={() => navigate(`/ingredient`)}>Add</Button>
-           </div>
+            <h3 style={{ color: 'white' }}>Your Current Ingredients</h3>
+            <div className="userIngredientContainer">
+                <Row style={{ justifyContent: 'center' }}>
+                    {userIngredients.map((userIngredient) => (
+                        <UserIngredient userIngredient={userIngredient} key={userIngredient.id} />
+                        ))}
+                </Row>
+                <Button color="success" onClick={() => navigate(`/ingredient`)}>Add Ingredient</Button>
+            </div>
         </>
     )
 }

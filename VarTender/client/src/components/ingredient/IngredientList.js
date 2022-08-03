@@ -38,16 +38,16 @@ export const IngredientList = () => {
 
     return (
         <>
-        <h3 style={{ color: 'white' }}>Available Ingredients</h3>
-        <div className="ingredientContainer">
-        <Row style={{ justifyContent: 'center' }}>
-            {ingredients.map((ingredient) => (
-                <Ingredient ingredient={ingredient} key={ingredient.id} handleChange={handleChange} />
-            ))}
-        </Row>
-        <Button color="secondary" onClick={() => navigate(`/myBar`)}>Return</Button>
-        <Button color="success" onClick={handleAddIngredient}>Add</Button>
-        </div>
+            <h3 style={{ color: 'white' }}>Available Ingredients</h3>
+            <div className="ingredientContainer" >
+                <Row style={{ justifyContent: 'center' }}>
+                    {ingredients.map((ingredient) => (
+                        <Ingredient ingredient={ingredient} key={ingredient.id} handleChange={handleChange} />
+                    ))}
+                </Row>
+                <Button color="secondary" onClick={() => navigate(`/myBar`)}>Return</Button>
+                <Button color="success" onClick={handleAddIngredient}>Add</Button>
+            </div>
         </>
     )
 }

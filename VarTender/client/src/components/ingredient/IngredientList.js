@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllIngredients } from "../../modules/ingredientManager";
 import { Ingredient } from "./Ingredient";
 import {useNavigate} from "react-router-dom";
-import { Button } from "reactstrap";
+import { Button, Row } from "reactstrap";
 import { addUserIngredient } from "../../modules/userIngredientManager";
 
 export const IngredientList = () => {
@@ -38,14 +38,16 @@ export const IngredientList = () => {
 
     return (
         <>
-        <h3>Available Ingredients</h3>
-        <div className="ingredientContainer">
-        {ingredients.map((ingredient) => (
-            <Ingredient ingredient={ingredient} key={ingredient.id} handleChange={handleChange} />
-        ))}
-        <Button color="secondary" onClick={() => navigate(`/myBar`)}>Return</Button>
-        <Button color="success" onClick={handleAddIngredient}>Add</Button>
-        </div>
+            <h3 style={{ color: 'white' }}>Available Ingredients</h3>
+            <div className="ingredientContainer" >
+                <Row style={{ justifyContent: 'center' }}>
+                    {ingredients.map((ingredient) => (
+                        <Ingredient ingredient={ingredient} key={ingredient.id} handleChange={handleChange} />
+                    ))}
+                </Row>
+                <Button color="secondary" onClick={() => navigate(`/myBar`)}>Return</Button>
+                <Button color="success" onClick={handleAddIngredient}>Add</Button>
+            </div>
         </>
     )
 }

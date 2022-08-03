@@ -32,7 +32,10 @@ export default function Header({ isLoggedIn }) {
                   <NavLink tag={RRNavLink} to="/myBar">MyBar</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/cocktail">Cocktails</NavLink>
+                  <NavLink tag={RRNavLink} to="/create">CreateACocktail</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/cocktail">RandomCocktails</NavLink>
                 </NavItem>
               </>
             }
@@ -41,7 +44,7 @@ export default function Header({ isLoggedIn }) {
             {isLoggedIn &&
               <>
                 <NavItem>
-                  <a aria-current="page" className="nav-link"
+                  <a  aria-current="page" className="nav-link"
                     style={{ cursor: "pointer" }} onClick={logout}>Logout</a>
                 </NavItem>
               </>

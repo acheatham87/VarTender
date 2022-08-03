@@ -17,6 +17,12 @@ p {
     white-space: pre-wrap;
 }
 
-body {
-  background-image: url(/public/images/BarBackgroundEdit1.jpg);
+::-webkit-scrollbar {
+  display: none;
 }
+
+main {
+  padding-bottom: 2rem;
+  margin-bottom: -2rem;
+}
+

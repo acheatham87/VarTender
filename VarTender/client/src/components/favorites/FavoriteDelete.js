@@ -24,17 +24,18 @@ export const FavoriteDelete = () => {
     }, []);
 
     return(
-
-        <Card  className="card">
-            <CardBody className="cardBody">
-                <h4>Are you sure you'd like to remove <b>{favorite.drinkName}</b> from favorites?</h4>
-                <Button onClick={() => navigate(`/favorite/details/${favorite.id}`)}>
-                    Cancel
-                </Button>
-                <Button color="danger" onClick={() => handleClickDelete()}>
-                    Remove
-                </Button>
-            </CardBody>
-        </Card>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Card id="card" style={{ margin: '2em', width: 'fit-content', }}>
+                <CardBody>
+                    <h4>Are you sure you'd like to remove <b>{favorite.drinkName}</b> from favorites?</h4>
+                    <Button onClick={() => navigate(`/favorite/details/${favorite.id}`)}>
+                        Cancel
+                    </Button>
+                    <Button color="danger" onClick={() => handleClickDelete()}>
+                        Remove
+                    </Button>
+                </CardBody>
+            </Card>
+        </div>
     )
 }

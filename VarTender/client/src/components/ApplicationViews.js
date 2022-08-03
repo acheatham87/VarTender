@@ -12,38 +12,43 @@ import { IngredientList } from "./ingredient/IngredientList";
 import { UserIngredientDetails } from "./userIngredient/UserIngredientDetails";
 import { UserIngredientDelete } from "./userIngredient/UserIngredientDelete";
 import { IngredientDetails } from "./ingredient/IngredientDetails";
+import {CreateCocktail} from "./createCocktail/CreateCocktail";
+import { CreatedCocktailList } from "./createCocktail/CreateCocktailList";
+import { CreateCocktailDetails } from "./createCocktail/CreateCocktailDetails";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
     <main>
       <Routes>
         <Route path="/">
-          <Route
-            index
-            element={isLoggedIn ? <FavoriteList /> : <Navigate to="/login" />}
-          />
+          <Route index element={isLoggedIn ? <FavoriteList /> : <Navigate to="/login" />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
 
           <Route path="favorite" >
-            <Route path="delete/:id" element={<FavoriteDelete />} />
-            <Route path="details/:id" element={<FavoriteDetails />} />
+            <Route path="delete/:id" element={isLoggedIn ? <FavoriteDelete /> : <Navigate to="/login" />} />
+            <Route path="details/:id" element={isLoggedIn ? <FavoriteDetails /> : <Navigate to="/login" />} />
           </Route>
 
           <Route path="myBar" >
-            <Route index element={<UserIngredientList />} />
-            <Route path="delete/:id" index element={<UserIngredientDelete />} />
-            <Route path="ingredientDetails/:id" index element={<UserIngredientDetails />} />
+            <Route index element={isLoggedIn ? <UserIngredientList /> : <Navigate to="/login" />} />
+            <Route path="delete/:id" index element={isLoggedIn? <UserIngredientDelete /> : <Navigate to="/login" />} />
+            <Route path="ingredientDetails/:id" index element={isLoggedIn? <UserIngredientDetails /> : <Navigate to="/login" />} />
+          </Route>
+
+          <Route path="create" >
+            <Route index element={isLoggedIn ? <CreateCocktail /> : <Navigate to="/login" />} />
+            <Route path="details/:idDrink" element={isLoggedIn ? <CreateCocktailDetails /> : <Navigate to="/login" />} />
           </Route>
 
           <Route path="ingredient" >
-            <Route index element={<IngredientList />} />
-            <Route path="details/:id" index element={<IngredientDetails />} />
+            <Route index element={isLoggedIn ? <IngredientList /> : <Navigate to="/login" />} />
+            <Route path="details/:id" index element={isLoggedIn ? <IngredientDetails /> : <Navigate to="/login" />} />
           </Route>
 
           <Route path="cocktail" >
-            <Route index element={<CocktailList />} />
-            <Route path="details/:idDrink" element={<CocktailDetails />} />
+            <Route index element={isLoggedIn ? <CocktailList /> : <Navigate to="/login" />} />
+            <Route path="details/:idDrink" element={isLoggedIn ? <CocktailDetails /> : <Navigate to="/login" />} />
           </Route>
 
           <Route path="*" element={<p>Whoops, nothing here...</p>} />

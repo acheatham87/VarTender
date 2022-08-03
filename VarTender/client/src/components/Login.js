@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../modules/authManager";
+import "./Login.css"
 
 export default function Login() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div style={{color: 'white'}}>
       <div>
         {/* <img src={`./images/VarTenderLogo.jpg`} alt="Image"/> */}
       </div>
@@ -44,7 +45,7 @@ export default function Login() {
             <Button>Login</Button>
           </FormGroup>
           <em>
-            Not registered? <Link to="/register">Register</Link>
+            Not registered? <Link id="register" to="/register">Register</Link>
           </em>
         </fieldset>
       </Form>

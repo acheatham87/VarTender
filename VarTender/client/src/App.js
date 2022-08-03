@@ -4,6 +4,7 @@ import { Spinner } from 'reactstrap';
 import Header from "./components/Header";
 import ApplicationViews from "./components/ApplicationViews";
 import { onLoginStatusChange } from "./modules/authManager";
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
@@ -17,10 +18,12 @@ function App() {
   }
 
   return (
+    <div className='bgImg' style={{ backgroundImage: `url(${process.env.PUBLIC_URL + `/images/BarBackgroundEdit1.jpg`})`}}>
     <Router>
       <Header isLoggedIn={isLoggedIn}/>
       <ApplicationViews isLoggedIn={isLoggedIn}/>
     </Router>
+    </div>
   );
 }
 

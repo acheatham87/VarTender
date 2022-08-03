@@ -25,7 +25,7 @@ export default function Register() {
   };
 
   return (
-    <Form onSubmit={registerClick}>
+    <Form style={{color: 'white'}} onSubmit={registerClick}>
       <fieldset>
         <FormGroup>
           <Label htmlFor="name">Name</Label>

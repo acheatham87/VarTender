@@ -25,17 +25,18 @@ export const UserIngredientDelete = () => {
     }, []);
 
     return(
-
-        <Card  className="card">
-            <CardBody className="cardBody">
-                <h4>Are you sure you'd like to remove <b>{location.state.ingredientName}</b> from favorites?</h4>
-                <Button onClick={() => navigate(`/myBar/ingredientDetails/${userIngredient.id}`)}>
-                    Cancel
-                </Button>
-                <Button color="danger" onClick={() => handleClickDelete()}>
-                    Remove
-                </Button>
-            </CardBody>
-        </Card>
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Card id="card" style={{ margin: '2em', width: 'fit-content', }}>
+                <CardBody>
+                    <h4>Are you sure you'd like to remove <b>{location.state.ingredientName}</b> from favorites?</h4>
+                    <Button onClick={() => navigate(`/myBar/ingredientDetails/${userIngredient.id}`)}>
+                        Cancel
+                    </Button>
+                    <Button color="danger" onClick={() => handleClickDelete()}>
+                        Remove
+                    </Button>
+                </CardBody>
+            </Card>
+        </div>
     )
 }

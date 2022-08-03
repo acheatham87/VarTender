@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, FormGroup, Label, Input} from "reactstrap";
-import "./Ingredient.css";
 
 export const Ingredient = ({ingredient, handleChange}) => {
     
     return(
-        <Card className="card">
-            <CardBody className="cardBody">
+        <Card id="card" style={{ width: '12rem', margin: `1rem`, textAlign: 'center' }}>
+            <CardBody>
                 <FormGroup check>
                     <Label check>
                         <Input 
@@ -17,13 +16,11 @@ export const Ingredient = ({ingredient, handleChange}) => {
                         value={ingredient.id} 
                         id="flexCheckDefault" 
                         onChange={handleChange}/>
-                        {`${ingredient.name}`}
-                        
+                        <Link to={`/ingredient/details/${ingredient.name}`}>
+                            <h6>{`${ingredient.name}`}</h6>
+                        </Link>                        
                     </Label>
                 </FormGroup>
-                <Link to={`/ingredient/details/${ingredient.name}`}>
-                    <h6>Details</h6>
-                </Link>
             </CardBody>
         </Card>
     )

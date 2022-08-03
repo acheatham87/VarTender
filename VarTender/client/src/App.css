@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.bgImg { 
+  background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+:any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+:any-link:hover {
+  color: black;
+}
+
+main {
+  min-height: 100vh
+}
+
+#card {
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
